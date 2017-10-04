@@ -59,7 +59,10 @@ module.exports = function(params, opts) {
 	opts = extend(DEFAULT_OPTS, opts);
 
 	AWS.config.update({ region: opts.region });
-	var lambda = new AWS.Lambda();
+	var lambda = new AWS.Lambda({
+		accessKeyId: opts.accessKeyId || '',
+		secretAccessKey: opts.secretAccessKey || ''
+	});
 	var toUpload;
 	var functionName = typeof params === 'string' ? params : params.FunctionName;
 

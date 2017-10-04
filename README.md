@@ -17,6 +17,8 @@ $ npm install --save-dev gulp-awslambda
 
 It is recommended that you store your AWS Credentials in `~/.aws/credentials` as per [the docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html#Credentials_from_the_Shared_Credentials_File_____aws_credentials_).
 
+You may also set your Credentials using the appropriate opts, (see [accessKeyId][accessKeyId] and [secretAccessKeyId][secretAccessKeyId]
+
 ### Basic Workflow
 
 gulp-awslambda accepts a single ZIP file, uploads that to AWS Lambda, and passes it on down the stream. It works really well with [gulp-zip](https://github.com/sindresorhus/gulp-zip):
@@ -90,6 +92,12 @@ Allows you to publish a new version when passing in a string for `lambda_params`
 #### `region = 'us-east-1'`
 
 Set your AWS region.
+
+#### `accessKeyId`
+Optional access key portion of your AWS credentials.  If specified, requires 'secretAccessKey' to be specified as well. See the section on AWS Credentials above for more information.
+
+#### `secretAccessKey`
+Optional secret access key portion of your AWS credentials.  If specified requres 'accessKeyId' to be specified as well.  See the section on AWS Credentials above for more information.
 
 ### `alias`
 
